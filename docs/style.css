@@ -446,6 +446,94 @@ button:disabled {
     gap: 10px;
 }
 
+.github-panel {
+    margin-top: 14px;
+}
+
+.github-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.github-grid label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.84rem;
+    color: #2f4d54;
+    font-weight: 600;
+}
+
+.github-grid input,
+.github-grid select {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+    color: var(--ink);
+}
+
+.github-actions {
+    margin-top: 14px;
+}
+
+.github-status {
+    margin-top: 14px;
+    border: 1px solid #d9e2e3;
+    border-radius: 12px;
+    background: #f8fbfc;
+    padding: 12px;
+    min-height: 48px;
+}
+
+.github-status .status-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e6eef0;
+}
+
+.github-status .status-item:last-child {
+    border-bottom: 0;
+}
+
+.github-status .status-state {
+    border-radius: 999px;
+    padding: 4px 9px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.github-status .ok {
+    background: #d9f3ef;
+    color: #17685c;
+}
+
+.github-status .pending {
+    background: #e7f4ff;
+    color: #1d5d94;
+}
+
+.github-status .error {
+    background: #ffe5e5;
+    color: #9f2f2f;
+    margin-top: 0;
+    padding: 4px 9px;
+}
+
+.github-status a {
+    color: #0a5962;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.github-status a:hover {
+    text-decoration: underline;
+}
+
 .hidden {
     display: none !important;
 }
@@ -456,6 +544,10 @@ button:disabled {
     }
 
     .split-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .github-grid {
         grid-template-columns: 1fr;
     }
 }

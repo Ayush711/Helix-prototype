@@ -78,6 +78,14 @@
                             <span class="criteria-status pending" id="criteria-issue">Pending</span>
                         </li>
                         <li>
+                            <span>Repository + markdown commit can be executed</span>
+                            <span class="criteria-status pending" id="criteria-repo">Pending</span>
+                        </li>
+                        <li>
+                            <span>Scaffold workflow trigger can be executed</span>
+                            <span class="criteria-status pending" id="criteria-workflow">Pending</span>
+                        </li>
+                        <li>
                             <span>Prototype remains static-hosting friendly</span>
                             <span class="criteria-status pass" id="criteria-static">Pass</span>
                         </li>
@@ -158,9 +166,61 @@
                 <div id="output" class="output"></div>
             </article>
 
+            <article class="panel github-panel">
+                <h3>GitHub Delivery Automation</h3>
+                <p class="description">Use a fine-grained token to create a repo, commit design markdown, create context issues, and trigger a scaffold workflow.</p>
+
+                <div class="github-grid">
+                    <label>
+                        Personal Access Token
+                        <input id="ghToken" type="password" placeholder="github_pat_..." autocomplete="off">
+                    </label>
+                    <label>
+                        Target Owner (org/user)
+                        <input id="ghOwner" type="text" placeholder="AIS-Commercial-Business-Unit">
+                    </label>
+                    <label>
+                        New Repository Name
+                        <input id="ghRepo" type="text" placeholder="helix-inventory-design">
+                    </label>
+                    <label>
+                        Repository Visibility
+                        <select id="ghVisibility">
+                            <option value="private">private</option>
+                            <option value="public">public</option>
+                        </select>
+                    </label>
+                    <label>
+                        Template Owner
+                        <input id="ghTemplateOwner" type="text" placeholder="AIS-Commercial-Business-Unit">
+                    </label>
+                    <label>
+                        Template Repository
+                        <input id="ghTemplateRepo" type="text" placeholder="helix-template">
+                    </label>
+                    <label>
+                        Workflow File Name
+                        <input id="ghWorkflowFile" type="text" placeholder="scaffold.yml">
+                    </label>
+                    <label>
+                        Branch / Ref
+                        <input id="ghRef" type="text" placeholder="main" value="main">
+                    </label>
+                </div>
+
+                <div class="stage-actions github-actions">
+                    <button class="secondary" id="generateIssueBtn" type="button">Open Prefilled Issue Form</button>
+                    <button id="createRepoBtn" type="button">1) Create Repo from Template</button>
+                    <button id="commitMarkdownBtn" type="button">2) Commit design.md</button>
+                    <button id="createIssuesBtn" type="button">3) Create Issues per Context</button>
+                    <button id="triggerWorkflowBtn" type="button">4) Trigger Scaffold Workflow</button>
+                </div>
+
+                <div id="githubStatus" class="github-status"></div>
+            </article>
+
             <div class="stage-actions">
                 <button class="secondary" id="backToStep2" type="button">Back</button>
-                <button class="secondary" id="generateIssueBtn" type="button">Generate GitHub Issue</button>
                 <button id="downloadBtn" type="button">Download design.md</button>
             </div>
         </section>
